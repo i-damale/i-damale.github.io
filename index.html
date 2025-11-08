@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>i‑damale — DevOps Portfolio & Projects</title>
+  <meta name="description" content="DevOps themed portfolio for i‑damale — automatically fetches projects from GitHub" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><rect width=%22128%22 height=%22128%22 rx=%2220%22 fill=%22%23000%22/><text x=%2240%22 y=%2284%22 font-size=%2280%22 fill=%22%23fff%22>⚙</text></svg>">
+</head>
+<body>
+  <div id="bg">
+    <svg class="cloud cloud-1" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g fill="#fff" opacity="0.08">
+        <ellipse cx="40" cy="35" rx="40" ry="20"/>
+        <ellipse cx="85" cy="30" rx="30" ry="18"/>
+        <ellipse cx="130" cy="35" rx="38" ry="20"/>
+      </g>
+    </svg>
+
+    <svg class="cloud cloud-2" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g fill="#fff" opacity="0.04">
+        <ellipse cx="40" cy="35" rx="40" ry="20"/>
+        <ellipse cx="85" cy="30" rx="30" ry="18"/>
+        <ellipse cx="130" cy="35" rx="38" ry="20"/>
+      </g>
+    </svg>
+  </div>
+
+  <header class="header glass">
+    <div class="brand">
+      <div class="logo-gear" aria-hidden="true">
+        <svg viewBox="0 0 100 100"><g transform="translate(50,50)">
+          <g class="gear" transform="rotate(0)">
+            <circle r="20" fill="#0ea5a5"></circle>
+            <g stroke="#083344" stroke-width="3" stroke-linecap="round">
+              <path d="M-30 0 L-40 -10 L-45 -5 L-35 5 Z" fill="#0891b2"></path>
+            </g>
+          </g>
+        </g></svg>
+      </div>
+      <div>
+        <h1>i-damale</h1>
+        <p class="subtitle">DevOps & Cloud Engineer — live portfolio from GitHub</p>
+      </div>
+    </div>
+
+    <nav class="header-actions">
+      <a id="btn-refresh" class="btn">Refresh Projects</a>
+      <a class="btn ghost" href="https://github.com/i-damale" target="_blank" rel="noopener">View on GitHub</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="profile card glass" id="profile">
+      <div class="profile-left">
+        <img id="avatar" alt="avatar" src="" />
+      </div>
+      <div class="profile-right">
+        <h2 id="name">Loading…</h2>
+        <p id="bio"></p>
+        <div class="stats" id="stats">
+          <!-- followers, repos etc -->
+        </div>
+        <div class="quick">
+          <span class="pill">Cloud</span>
+          <span class="pill">CI/CD</span>
+          <span class="pill">Kubernetes</span>
+          <span class="pill">Terraform</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="pipeline card glass" id="pipeline">
+      <h3>CI/CD Pipeline (live)</h3>
+      <div class="pipeline-visual">
+        <div class="stage">Code</div>
+        <div class="arrow">→</div>
+        <div class="stage">Build</div>
+        <div class="arrow">→</div>
+        <div class="stage">Test</div>
+        <div class="arrow">→</div>
+        <div class="stage">Deploy</div>
+      </div>
+      <p class="muted">This section visualizes the DevOps flow and animates when projects are loaded.</p>
+    </section>
+
+    <section id="projects" class="projects card glass">
+      <h3>Projects</h3>
+      <div id="projects-grid" class="grid">
+        <!-- project cards injected here -->
+      </div>
+      <div id="projects-empty" class="muted">No projects found yet.</div>
+    </section>
+
+    <section class="cloud-infra card glass" id="cloud-infra">
+      <h3>Cloud Infrastructure Snapshot</h3>
+      <div class="infra-grid">
+        <div class="infra-card">
+          <svg class="ico" viewBox="0 0 24 24"><path fill="#06b6d4" d="M6 14l6-6 6 6H6z"/></svg>
+          <div>
+            <h4>Regions</h4>
+            <p id="cloud-regions">—</p>
+          </div>
+        </div>
+        <div class="infra-card">
+          <svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#7c3aed"/></svg>
+          <div>
+            <h4>Containers</h4>
+            <p id="cloud-containers">—</p>
+          </div>
+        </div>
+        <div class="infra-card">
+          <svg class="ico" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" fill="#ef4444"/></svg>
+          <div>
+            <h4>Services</h4>
+            <p id="cloud-services">—</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <small>Built with ❤️ · live GitHub data · theme: DevOps & Cloud</small>
+      <div class="links">
+        <a href="https://github.com/i-damale" target="_blank" rel="noopener">GitHub</a>
+        <a href="#" id="open-source-credit">Source</a>
+      </div>
+    </footer>
+  </main>
+
+  <template id="project-card-template">
+    <article class="project card">
+      <header class="project-header">
+        <h4 class="project-name"></h4>
+        <div class="project-meta">
+          <span class="lang"></span>
+          <span class="stars">★ <span class="star-count">0</span></span>
+        </div>
+      </header>
+      <p class="project-desc"></p>
+      <div class="project-links">
+        <a class="btn small repo-link" target="_blank" rel="noopener">Repo</a>
+        <a class="btn small demo-link ghost" target="_blank" rel="noopener">Demo</a>
+        <a class="btn small readme-link ghost" target="_blank" rel="noopener">Readme</a>
+      </div>
+      <div class="project-tags"></div>
+    </article>
+  </template>
+
+  <script type="module" src="assets/app.js"></script>
+</body>
+</html>
